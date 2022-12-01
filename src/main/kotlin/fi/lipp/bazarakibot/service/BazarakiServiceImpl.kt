@@ -55,7 +55,7 @@ class BazarakiServiceImpl : BazarakiService {
     val result = mutableListOf<Advert>()
     for (announcement in announcements) {
       val publicationDate = retrievePublicationTime(announcement)
-      if (publicationDate.isBefore(lastAdvertTime)) break
+      if (publicationDate <= lastAdvertTime) break
 
       val advertUrl = retrieveUrl(announcement)
       val fullAdvert = try {
